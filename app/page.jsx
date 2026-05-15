@@ -126,8 +126,6 @@ const CATEGORIES = [
   { key: "other",     label: "Other",            color: "#888"    },
 ]
 
-import { RELATED_LINKS as RELATED } from "./lib/links"
-
 function toMonthly(cost, freq) {
   const f = FREQ_OPTIONS.find(o => o.value === freq)
   return (parseFloat(cost) || 0) * (f ? f.perMonth : 1)
