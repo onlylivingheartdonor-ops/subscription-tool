@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { RELATED_LINKS as RELATED } from "./lib/links"
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap');
@@ -125,21 +126,7 @@ const CATEGORIES = [
   { key: "other",     label: "Other",            color: "#888"    },
 ]
 
-const RELATED = [
-  { label: "Credit Card Debt Payoff Calculator",  href: "https://creditcarddebtpayoffcalculator.com" },
-  { label: "Debt Reducing Calculator",            href: "https://debtreducingcalculator.com" },
-  { label: "Side Hustle Tax Estimator",           href: "https://sidehustletaxestimator.com" },
-  { label: "High Yield Savings Calculator",       href: "https://highyieldsavingscalculator.com" },
-  { label: "Retirement Savings Gap",              href: "https://retirementsavingsgap.com" },
-  { label: "Life Insurance Coverage Calculator",  href: "https://lifeinsurancecoveragecalculator.com" },
-  { label: "Online Course ROI Calculator",        href: "https://onlinecourseroi.com" },
-  { label: "Subscription Cost Calculator",        href: "https://mysubscriptioncost.com" },
-  { label: "Email Attachment Size Checker",       href: "https://emailattachmentsize.com" },
-  { label: "GPA Calculator",                      href: "https://gpacalculator.site" },
-  { label: "YouTube Title Checker",               href: "https://youtubetitlechecker.com" },
-  { label: "Strong Password Builder",             href: "https://strongpasswordbuilder.com" },
-  { label: "Cool Username Generator",             href: "https://coolusernamegenerator.com" },
-]
+import { RELATED_LINKS as RELATED } from "./lib/links"
 
 function toMonthly(cost, freq) {
   const f = FREQ_OPTIONS.find(o => o.value === freq)
@@ -443,17 +430,28 @@ export default function Page() {
           </div>
         </div>
 
+{/* ========== MONEYWISE LINK — START ========== */}
+        <div style={{ background: "#fff", border: "1px solid #e0dbd3", borderRadius: "4px", padding: "1rem 1.5rem", marginBottom: "1.5rem", textAlign: "center" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "13px", color: "#888" }}>
+            Looking for more free financial tools?{" "}
+            <a href="https://moneywisecalculator.com" style={{ color: "#b45309", textDecoration: "underline" }}>
+              Visit MoneyWiseCalculator.com
+            </a>
+          </p>
+        </div>
+        {/* ========== MONEYWISE LINK — END ========== */}
+
         {/* RELATED */}
-        <div className="sub-card">
-          <p className="sub-section-title">Related tools</p>
-          <div className="sub-related-links">
+        <div className="dr-card">
+          <p className="dr-section-title">Related tools</p>
+          <div className="dr-related-links">
             {RELATED.map((r, i) => (
-              <a key={i} className="sub-related-link" href={r.href}>{r.label}</a>
+              <a key={i} className="dr-related-link" href={r.href}>{r.label}</a>
             ))}
           </div>
-          <div className="sub-disclaimer">
-            This tool performs calculations locally in your browser. No data is stored or transmitted. Investment projections are illustrative only and do not guarantee future returns. Actual investment results will vary. This site may use cookies and analytics. By using this site, you agree to our Privacy Policy and Terms of Service.
-            <div className="sub-footer-links">
+          <div className="dr-disclaimer">
+            This tool provides estimates for informational purposes only and does not constitute financial advice. Results assume a fixed interest rate and fixed monthly payment for the full repayment period. This site may use cookies and analytics. By using this site, you agree to our Privacy Policy and Terms of Service.
+            <div className="dr-footer-links">
               <a href="/privacy">Privacy Policy</a>
               <a href="/terms">Terms of Service</a>
             </div>
